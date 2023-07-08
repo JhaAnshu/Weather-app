@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="style.css" rel ="stylesheet">
+    
+</head>
+<body>
+    <!--
+   <div class="card">
+      
+    <div class="search">
+        <input type="text" placeholder="Enter city name" spellcheck="false">
+        <button>search</button>
+
+    </div>
+    <div class="error">
+        <p>Invalid city name</p>
+    </div>
+    <div class="weather">
+       <img class="weather-icon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1AGGlypml6MBefpoDPHq6YK3TaSdT7egIKfemfUvMMhLrj662l87iJoMRjb5al_l8_yI&usqp=CAU" alt="">
+         <h1 class="temp">22c</h1>
+         <h2 class="city">New York</h2>
+         <div class="details">
+            <div class="col">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRSaQc0wtx8ZACv9gTmYio0uOvrbyUP1gQtg&usqp=CAU" alt="">
+                <div>
+                    <p class="humidity">50%</p>
+                    <p>Humidity</p>
+                </div>
+            </div>
+            <div class="col">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxmnjD6Y837vq-LV6NHgWb6b_vh7jDFOMbig&usqp=CAU" alt="">
+                <div>
+                    <p class="wind">15 km/h</p>
+                    <p>wind speed</p>
+                </div>
+            </div>
+         </div>
+    </div>
+
+   </div>
+
+ 
+   <script>
+    const apiKey = "6e4481d17ec067f55efd16deed6a5444";
+    const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
+   const searchBox = document.querySelector(".search input");
+   const searchBtn = document.querySelector(".search Button");
+   const weatherIcon = document.querySelector(".weather-icon");
+    async function checkWeather(city){
+         const response = await fetch(apiUrl + city+ `&appid=${apiKey}`);
+        
+         if(response.status == 404){
+            document.querySelector(".error").style.display = "block";
+            document.querySelector(".weather").style.display = "none";
+         }
+          else {
+         var data = await response.json();
+
+         document.querySelector(".city").innerHTML = data.name;
+         document.querySelector(".temp").innerHTML = Math.round(data.main.temp) +"degree celcius";
+         document.querySelector(".humidity").innerHTML = data.main.humidity +"%";
+         document.querySelector(".wind").innerHTML = data.wind.speed +"km/h";
+         //console.log(data);
+         if(data.weather[0].main == "Clouds"){
+                 weatherIcon.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQz7mjJskJhRfWUW4F14lVnlL-JtFhF7cuXfiV7NrzPjQ&s";
+         }
+         else if(data.weather[0].main == "Rain"){
+             weatherIcon.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1AGGlypml6MBefpoDPHq6YK3TaSdT7egIKfemfUvMMhLrj662l87iJoMRjb5al_l8_yI&usqp=CAU";
+         }
+
+
+         document.querySelector(".weather").style.display = "block";
+         document.querySelector(".error").style.display = "none";
+        }
+}
+    searchBtn.addEventListener("click" , ()=>{
+        checkWeather(searchBox.value);
+    })
+   // checkWeather();
+   </script>
+    
+
+    -->
+    
+     <div class="container">
+
+       <div class="search-part">
+       
+        <input type="text" class="search-box">
+        <button class="search-btn">search</button>
+
+       </div>
+       <div class="error">
+        <p>Invalid city name</p>
+    </div>
+       <div class="result">
+
+        <img class="weather-icon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1AGGlypml6MBefpoDPHq6YK3TaSdT7egIKfemfUvMMhLrj662l87iJoMRjb5al_l8_yI&usqp=CAU" alt="">
+        <h1 class="temp">22c</h1>
+        <h2 class="city">New York</h2>
+        <div class="details">
+           <div class="col">
+               <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRSaQc0wtx8ZACv9gTmYio0uOvrbyUP1gQtg&usqp=CAU" alt="">
+               <div>
+                   <p class="humidity">50%</p>
+                   <p>Humidity</p>
+               </div>
+           </div>
+           <div class="col">
+               <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxmnjD6Y837vq-LV6NHgWb6b_vh7jDFOMbig&usqp=CAU" alt="">
+               <div>
+                   <p class="wind">15 km/h</p>
+                   <p>wind speed</p>
+               </div>
+           </div>
+        </div>
+
+
+       </div>
+
+     </div>
+
+
+    <script src="script.js"></script>
+
+
+</body>
+</html>

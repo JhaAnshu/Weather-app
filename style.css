@@ -1,0 +1,13 @@
+img{
+    
+        margin-top: 30px;
+        width: 170px;
+   
+    
+}
+.result {
+    display: none;
+}
+.error{
+    display: none;
+}
